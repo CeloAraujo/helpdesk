@@ -48,7 +48,7 @@ img {
   background: rgb(10, 12, 191);
   background: linear-gradient(
     90deg,
-    rgba(10, 12, 191, 1) 0%,
+    rgb(63, 65, 199) 0%,
     rgba(13, 119, 232, 1) 49%,
     rgba(0, 212, 255, 1) 100%
   );
