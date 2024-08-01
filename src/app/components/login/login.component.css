@@ -1,46 +1,45 @@
 .container {
-    height: 100%;
-    background: linear-gradient(
+  height: 100%;
+  background: linear-gradient(
     90deg,
-    rgb(63, 65, 199) 0%,
+    rgb(112, 115, 245) 0%,
     rgba(13, 119, 232, 1) 49%,
-    rgba(0, 212, 255, 1) 100%
+    rgb(4, 159, 190) 100%
   );
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form{
-    width: 30rem;
-    margin: auto;
-    background-color: rgb(235, 235, 235);
-    padding: 4rem 1rem;
-    border-radius: 1rem;
+.form {
+  width: 30rem;
+  margin: auto;
+  background-color: rgb(235, 235, 235);
+  padding: 4rem 1rem;
+  border-radius: 1rem;
 }
 
-h1{
-   width: 100%; 
-   text-align: center;
+h1 {
+  width: 100%;
+  text-align: center;
 }
 
-.full-width{
-    width: 100%;
+.full-width {
+  width: 100%;
 }
-button{
-    margin-top: 1rem;
-    background: linear-gradient(
-        90deg,
-        rgb(63, 65, 199) 0%,
-        rgba(13, 119, 232, 1) 49%,
-        rgba(0, 212, 255, 1) 100%
-      );
-    color: white;
+button {
+  margin-top: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgb(112, 115, 245) 0%,
+    rgba(13, 119, 232, 1) 49%,
+    rgb(4, 159, 190) 100%
+  );
+  color: white;
 }
 
-img{
-   
-    height: 15rem;
-    width: 100%;
-    margin: 1rem auto 1rem auto;
+img {
+  height: 15rem;
+  width: 100%;
+  margin: 1rem auto 1rem auto;
 }
