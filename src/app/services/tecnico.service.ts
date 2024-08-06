@@ -8,11 +8,14 @@ import { Tecnico } from '../models/tecnico';
   providedIn: 'root'
 })
 export class TecnicoService {
- 
 
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Tecnico[]>{
     return this.http.get<Tecnico[]>(`${API_CONFIG.baseURL}/tecnicos`)
+  }
+  
+  create(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.post<Tecnico>(`${API_CONFIG.baseURL}/tecnicos`, tecnico);
   }
 }
