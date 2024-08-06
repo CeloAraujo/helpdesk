@@ -33,3 +33,10 @@ h1 {
   width: 100%;
   text-align: center;
 }
+
+.edit{
+  color:rgb(63, 65, 199);
+}
+.delete{
+  color:rgb(190, 19, 19);
+}

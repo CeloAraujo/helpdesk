@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Listagem de Técnicos</h1>
-  <button  routerLink="create" class="mat-elevation-z8" mat-raised-button>Novo ténico</button>
+  <button routerLink="create" class="mat-elevation-z8" mat-raised-button>
+    Novo ténico
+  </button>
 
   <mat-form-field appeanrence="standard">
     <mat-label>Filter</mat-label>
@@ -35,7 +37,10 @@
 
       <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef>Ações</th>
-        <td mat-cell *matCellDef="let element">Açoes</td>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink=""><i class="material-icons edit">edit</i></a>
+          <a routerLink=""><i class="material-icons delete">delete</i></a>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
