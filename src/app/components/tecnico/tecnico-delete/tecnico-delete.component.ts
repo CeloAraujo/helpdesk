@@ -5,11 +5,11 @@ import { ToastrService } from "ngx-toastr";
 import { TecnicoService } from "src/app/services/tecnico.service";
 
 @Component({
-  selector: "app-tecnico-update",
-  templateUrl: "./tecnico-update.component.html",
-  styleUrls: ["./tecnico-update.component.css"],
+  selector: 'app-tecnico-delete',
+  templateUrl:'./tecnico-delete.component.html', 
+  styleUrls: ['./tecnico-delete.component.css']
 })
-export class TecnicoUpdateComponent implements OnInit {
+export class TecnicoDeleteComponent implements OnInit {
   tecnicoForm: FormGroup;
   tecnicoId: string;
 
@@ -24,12 +24,12 @@ export class TecnicoUpdateComponent implements OnInit {
   ngOnInit(): void {
     (this.tecnicoId = this.route.snapshot.paramMap.get("id")),
       (this.tecnicoForm = this.fb.group({
-        nome: ["", [Validators.required, Validators.minLength(3)]],
-        cpf: ["", [Validators.required]],
-        email: ["", [Validators.required, Validators.email]],
-        senha: ["", [Validators.required, Validators.minLength(3)]],
-        perfis: [[]],
-        dataCriacao: [""],
+        nome: [{value:"",disabled:true}, [Validators.required, Validators.minLength(3)]],
+        cpf: [{value:"",disabled:true},[Validators.required]],
+        email: [{value:"",disabled:true}, [Validators.required, Validators.email]],
+        senha: [{value:"",disabled:true}, [Validators.required, Validators.minLength(3)]],
+        perfis: [{value:[],disabled:true},],
+        dataCriacao: [{value:"",disabled:true}],
       }));
 
     this.findById();
@@ -47,11 +47,10 @@ export class TecnicoUpdateComponent implements OnInit {
       };
   }
 
-  update(): void {
-    if (this.tecnicoForm.valid) {
-      this.service.update(this.tecnicoId,this.tecnicoForm.value).subscribe(
+  delete(): void { 
+      this.service.delete(this.tecnicoId).subscribe(
         () => {
-          this.toast.success("Técnico atualizado com sucesso", "Update");
+          this.toast.success("Técnico deletado com sucesso", "Delete");
           this.router.navigate(["tecnicos"]);
         },
         (ex) => {
@@ -64,7 +63,6 @@ export class TecnicoUpdateComponent implements OnInit {
           }
         }
       );
-    }
   }
 
   addPerfil(perfil: any): void {
@@ -75,9 +73,5 @@ export class TecnicoUpdateComponent implements OnInit {
       perfis.push(perfil);
     }
     this.tecnicoForm.get("perfis").setValue(perfis);
-  }
-
-  validaCampos(): boolean {
-    return this.tecnicoForm.valid;
   }
 }
