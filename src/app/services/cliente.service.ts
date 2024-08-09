@@ -26,7 +26,7 @@ export class ClienteService {
     return this.http.put<void>(`${API_CONFIG.baseURL}/clientes/${id}`, cliente);
   }
   
-  delete(id: any): Observable<Cliente> {
+  delete(id: string): Observable<Cliente> {
     return this.http.delete<Cliente>(`${API_CONFIG.baseURL}/clientes/${id}`);
   }
 }
