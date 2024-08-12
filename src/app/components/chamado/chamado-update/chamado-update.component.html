@@ -9,7 +9,7 @@
     <!-- Primeiro Formulário -->
     <form [formGroup]="chamadoForm" class="form">
       <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Título do chamado</mat-label>
+        <mat-label>{{chamado.titulo}}</mat-label>
         <input
           formControlName="titulo"
           required
@@ -20,7 +20,7 @@
   
       <div class="status-prioridade">
         <mat-form-field>
-          <mat-label>Selecione um status</mat-label>
+          <mat-label>{{retornaStatus(chamado.status)}}</mat-label>
           <mat-select formControlName="status" required appearance="outline">
             <mat-option value="0">ABERTO</mat-option>
             <mat-option value="1">EM ANDAMENTO</mat-option>
@@ -28,8 +28,8 @@
           </mat-select>
         </mat-form-field>
   
-        <mat-form-field>
-          <mat-label>Selecione uma prioridade</mat-label>
+        <mat-form-field class="black">
+          <mat-label>{{retornaPrioridade(chamado.prioridade)}}</mat-label>
           <mat-select formControlName="prioridade" required appearance="outline">
             <mat-option value="0">BAIXA</mat-option>
             <mat-option value="1">MÉDIA</mat-option>
@@ -40,7 +40,7 @@
   
       <div class="tecnico">
         <mat-form-field class="full-width">
-          <mat-label>Selecione um técnico</mat-label>
+          <mat-label>{{chamado.nomeTecnico}}</mat-label>
           <mat-select formControlName="tecnico" required appearance="outline">
             <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{
               tec.nome
@@ -51,7 +51,7 @@
   
       <div class="cliente">
         <mat-form-field class="full-width">
-          <mat-label>Selecione um cliente</mat-label>
+          <mat-label>{{chamado.nomeCliente}}</mat-label>
           <mat-select
             formControlName="cliente"
             name="cliente"
@@ -66,12 +66,13 @@
       </div>
   
       <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Deixe uma descrição</mat-label>
+        <mat-label>{{chamado.observacoes}}</mat-label>
         <textarea
           formControlName="observacoes"
           required
           class="descricao"
           matInput
+          color="black"
           placeholder="Ex. Restaurar notebook"
         ></textarea>
       </mat-form-field>
@@ -87,7 +88,7 @@
       Atualizar
     </button>
     <button
-      routerLink="../"
+      routerLink="../../"
       class="full-width mat-elevation-z4"
       mat-stroked-button
       color="warn"
