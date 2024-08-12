@@ -70,7 +70,7 @@ export class ChamadoUpdateComponent implements OnInit {
     this.findAllTecnicos();
 
     this.chamadoForm.valueChanges.subscribe(() => {
-      this.validaCampos(); // Chama validaCampos ao modificar qualquer valor
+      this.validaCampos(); 
     });
   }
   findById(): void {
