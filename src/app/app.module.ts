@@ -48,12 +48,13 @@ import { ClienteListComponent } from "./components/cliente/cliente-list/cliente-
 import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
+import { ChamadoViewComponent } from './components/chamado/chamado-view/chamado-view.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, HomeComponent, HeaderComponent, TecnicoListComponent, LoginComponent, TecnicoCreateComponent, TecnicoUpdateComponent, TecnicoDeleteComponent,ClienteCreateComponent,ClienteDeleteComponent,ClienteUpdateComponent,ClienteListComponent, ChamadoListComponent, ChamadoCreateComponent, ChamadoUpdateComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent, HeaderComponent, TecnicoListComponent, LoginComponent, TecnicoCreateComponent, TecnicoUpdateComponent, TecnicoDeleteComponent,ClienteCreateComponent,ClienteDeleteComponent,ClienteUpdateComponent,ClienteListComponent, ChamadoListComponent, ChamadoCreateComponent, ChamadoUpdateComponent, ChamadoViewComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
