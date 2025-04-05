@@ -39,17 +39,32 @@ export class TecnicoUpdateComponent implements OnInit {
     this.service
       .findById(this.tecnicoId, this.tecnicoForm.value)
       .subscribe(tecnico => {
-        tecnico.perfis=[]
-        this.tecnicoForm.patchValue(tecnico);
-      }), error => {
+        console.log(tecnico);  
+        this.tecnicoForm.patchValue(tecnico);  
+        console.log("aqui", this.tecnicoForm.value);  
+      }, error => {
         this.toast.error('Erro ao carregar os dados do técnico');
         console.error(error);
-      };
+      });
   }
+  
 
   update(): void {
     if (this.tecnicoForm.valid) {
-      this.service.update(this.tecnicoId,this.tecnicoForm.value).subscribe(
+      let perfis = this.tecnicoForm.get("perfis").value;
+  
+      if (Array.isArray(perfis)) {
+        perfis = perfis.map(perfil => {
+          if (typeof perfil === 'string') {
+            return this.mapPerfilToNumber(perfil);
+          }
+          return perfil;
+        });
+      }
+  
+      this.tecnicoForm.get("perfis").setValue(perfis);
+  
+      this.service.update(this.tecnicoId, this.tecnicoForm.value).subscribe(
         () => {
           this.toast.success("Técnico atualizado com sucesso", "Update");
           this.router.navigate(["tecnicos"]);
@@ -66,6 +81,19 @@ export class TecnicoUpdateComponent implements OnInit {
       );
     }
   }
+  mapPerfilToNumber(perfil: string): number {
+    switch (perfil) {
+      case 'ADMIN':
+        return 0;
+      case 'CLIENTE':
+        return 1;
+      case 'TECNICO':
+        return 2;
+      default:
+        return 1;
+    }
+  }
+  
 
   addPerfil(perfil: any): void {
     const perfis = this.tecnicoForm.get("perfis").value;
