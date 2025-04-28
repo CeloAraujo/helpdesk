@@ -15,12 +15,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let token = localStorage.getItem('token');
+    let modifiedReq = request;
     if(token){
-      const cloneReq = request.clone({headers: request.headers.set('Authorization',`Bearer ${token}`)})
-      return next.handle(cloneReq);
+      modifiedReq = request.clone({
+        headers: request.headers.set('Authorization', `Bearer ${token}`),
+        withCredentials: true 
+      });
+      return next.handle(modifiedReq);
     }else{
-      return next.handle(request);
+      modifiedReq = request.clone({
+        withCredentials: true // 👈 Mesmo sem token, queremos mandar cookie/session
+      });
     }
+    return next.handle(modifiedReq);
     
   }
 }
