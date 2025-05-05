@@ -1,3 +1,3 @@
 export const API_CONFIG = {
-    baseURL: "techbridge-production-1b29.up.railway.app"
+    baseURL: "https://techbridge-production-52fe.up.railway.app/"
 }
